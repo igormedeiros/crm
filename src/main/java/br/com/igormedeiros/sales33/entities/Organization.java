@@ -1,10 +1,14 @@
 package br.com.igormedeiros.sales33.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,11 +21,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class Organizations {
+public class Organization {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 
 	@Column(nullable = false, length = 200)
 	private String name;
@@ -34,4 +38,13 @@ public class Organizations {
 
 	@Column(nullable = false, length = 150)
 	private String email;
+	
+	@OneToMany(mappedBy = "organization")
+	private List<Contact> contacts;
+	
+	@OneToMany(mappedBy = "organization")
+	private List<BusinessDeal> deal;
+	
+	@OneToMany(mappedBy = "organization")
+	private List<Note> notes;
 }
