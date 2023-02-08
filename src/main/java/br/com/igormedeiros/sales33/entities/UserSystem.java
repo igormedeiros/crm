@@ -10,11 +10,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.Accessors;
 
 @Entity
 @Data
@@ -22,6 +26,7 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class UserSystem {
 
 	@Id
@@ -34,6 +39,10 @@ public class UserSystem {
 	@Column(nullable = false, length = 100)
 	private String email;
 	
+	@Column (nullable = false, length = 50)
+	private String userName;
+	
+	@JsonIgnore
 	@Column(nullable = false, length = 255)
 	private String userPassword;
 	

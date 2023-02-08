@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import br.com.igormedeiros.sales33.entities.enums.DealStage;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -38,7 +39,7 @@ public class BusinessDeal {
 	private Double value;
 
 	@Column(nullable = false)
-	private Integer stage;
+	private DealStage stage;
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
