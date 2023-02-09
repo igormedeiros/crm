@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import br.com.igormedeiros.sales33.entities.enums.ActivityType;
 import lombok.AllArgsConstructor;
@@ -25,29 +26,29 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-
+@Table(name = "tb_activity")
 public class Activity {
-	
+
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column (nullable = false, length = 50)
+
+	@Column(nullable = false, length = 50)
 	@Enumerated(EnumType.STRING)
 	private ActivityType type;
-	
-	@Column (nullable = false)
+
+	@Column(nullable = false)
 	private LocalDate date;
-	
-	@Column (length = 200)
+
+	@Column(length = 255)
 	private String description;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "deal_id")
-	private BusinessDeal deal;
+	private Deal deal;
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private UserSystem user;
+	private User user;
 
 }

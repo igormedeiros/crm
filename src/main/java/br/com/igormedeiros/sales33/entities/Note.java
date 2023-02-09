@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +23,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-
+@Table(name = "tb_note")
 public class Note {
 
 	@Id
@@ -38,7 +39,7 @@ public class Note {
 
 	@ManyToOne
 	@JoinColumn(name = "deal_id")
-	private BusinessDeal deal;
+	private Deal deal;
 
 	@ManyToOne
 	@JoinColumn(name = "organization_id")
@@ -46,7 +47,7 @@ public class Note {
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private UserSystem user;
+	private User user;
 
 	private LocalDate dateCreated;
 	private LocalDate dateUpdated;

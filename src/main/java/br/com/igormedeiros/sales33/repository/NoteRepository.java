@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.igormedeiros.sales33.entities.BusinessDeal;
 import br.com.igormedeiros.sales33.entities.Contact;
+import br.com.igormedeiros.sales33.entities.Deal;
 import br.com.igormedeiros.sales33.entities.Note;
-import br.com.igormedeiros.sales33.entities.UserSystem;
+import br.com.igormedeiros.sales33.entities.User;
 
 public interface NoteRepository extends JpaRepository<Note, Long>{
 	
@@ -15,8 +15,8 @@ public interface NoteRepository extends JpaRepository<Note, Long>{
 	
 	List<Note> findByNote(String note);
 	
-	List<Note> findByDeal(BusinessDeal deal);
+	List<Note> findByDeal(Deal deal);
 	
-	List<Note> findByUser(UserSystem user);
+	List<Note> findByUser(User user);
 	
 }

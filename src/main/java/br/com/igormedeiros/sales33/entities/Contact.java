@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,14 +25,14 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-
+@Table(name = "tb_contact")
 public class Contact {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable = false, length = 200)
+	@Column(nullable = false, length = 255)
 	private String name;
 
 	@Column(nullable = false, length = 150)
@@ -46,7 +47,7 @@ public class Contact {
 
 	@ManyToOne
 	@JoinColumn(name = "deal_id")
-	private BusinessDeal deal;
+	private Deal deal;
 
 	@OneToMany(mappedBy = "contact", fetch = FetchType.LAZY)
 	private List<Note> notes;

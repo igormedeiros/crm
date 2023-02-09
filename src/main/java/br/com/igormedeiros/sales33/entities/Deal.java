@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import br.com.igormedeiros.sales33.entities.enums.DealStage;
 import lombok.AllArgsConstructor;
@@ -25,8 +26,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-
-public class BusinessDeal {
+@Table(name = "tb_deal")
+public class Deal {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,7 +44,7 @@ public class BusinessDeal {
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private UserSystem user;
+	private User user;
 
 	@ManyToOne
 	@JoinColumn(name = "organization_id")

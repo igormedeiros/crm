@@ -8,7 +8,6 @@ import br.com.igormedeiros.sales33.entities.Contact;
 
 public interface ContactRepository extends JpaRepository<Contact, Long> {
 	
-	<Optional>Long findById(Long id);
 	
 	<Optional>List<Contact> findByName(String name);
 	
